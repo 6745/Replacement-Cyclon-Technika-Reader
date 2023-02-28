@@ -22,6 +22,9 @@ while True:
         print(debug) #debug 
         if not any(ignore_string in name for ignore_string in ignore_list):
             name = data[22:].replace(" ", "").replace("\x00", "")
+            if name == "The CRC_A does not match.":
+                print("DEBUG: CRC check failed. Restarting loop.")
+                continue
             if len(name) == 20:
                 print("DEBUG: Block Read Success! Saving to file..") #debug 
                 with open("CardNum.txt", "w") as file:
