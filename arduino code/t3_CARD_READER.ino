@@ -92,11 +92,19 @@ void loop() {
     return;
   }
 
-  status = mfrc522.MIFARE_Read(block, buffer1, &len);
-  if (status != MFRC522::STATUS_OK) {
+status = mfrc522.MIFARE_Read(block, buffer1, &len);
+if (status != MFRC522::STATUS_OK) {
+  if (status == MFRC522::STATUS_CRC_WRONG || status == MFRC522::STATUS_MIFARE_NACK) {
+    Serial.println("CRC_A does not match");
+    mfrc522.PICC_HaltA(); // Stop communication with the PICC
+    mfrc522.PCD_StopCrypto1(); // Stop encryption on PCD
+    return; // Skip to the next card
+  }
+  else {
     Serial.println(mfrc522.GetStatusCodeName(status));
     return;
   }
+}
 
   //PRINT FIRST NAME
   for (uint8_t i = 0; i < 16; i++)
@@ -120,10 +128,18 @@ void loop() {
   }
 
   status = mfrc522.MIFARE_Read(block, buffer2, &len);
-  if (status != MFRC522::STATUS_OK) {
+if (status != MFRC522::STATUS_OK) {
+  if (status == MFRC522::STATUS_CRC_WRONG || status == MFRC522::STATUS_MIFARE_NACK) {
+    Serial.println("CRC_A does not match");
+    mfrc522.PICC_HaltA(); // Stop communication with the PICC
+    mfrc522.PCD_StopCrypto1(); // Stop encryption on PCD
+    return; // Skip to the next card
+  }
+  else {
     Serial.println(mfrc522.GetStatusCodeName(status));
     return;
   }
+}
 
   //PRINT LAST NAME
   for (uint8_t i = 0; i < 16; i++) {
@@ -144,12 +160,20 @@ void loop() {
     Serial.println(mfrc522.GetStatusCodeName(status));
     return;
   }
-
-  status = mfrc522.MIFARE_Read(block, buffer3, &len);
-  if (status != MFRC522::STATUS_OK) {
+  
+status = mfrc522.MIFARE_Read(block, buffer3, &len);
+if (status != MFRC522::STATUS_OK) {
+  if (status == MFRC522::STATUS_CRC_WRONG || status == MFRC522::STATUS_MIFARE_NACK) {
+    Serial.println("CRC_A does not match");
+    mfrc522.PICC_HaltA(); // Stop communication with the PICC
+    mfrc522.PCD_StopCrypto1(); // Stop encryption on PCD
+    return; // Skip to the next card
+  }
+  else {
     Serial.println(mfrc522.GetStatusCodeName(status));
     return;
   }
+}
 
   //PRINT BLOCK 2 DATA
   Serial.print("");
