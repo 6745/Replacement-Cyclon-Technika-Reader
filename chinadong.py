@@ -17,13 +17,13 @@ parser.add_argument("BAUD", type=int, help="Baud rate")
 args = parser.parse_args()
 
 ser = serial.Serial(args.COM, args.BAUD)
-ignore_list = ["Error in communication", "Authentication failed", "Timeout in communication","The CRC_A does not match."]
+ignore_list = ["Error in communication", "Authentication failed", "Timeout in communication","CRC_A does not match"]
 
 while True:
     data = ser.readline().decode('utf-8').strip()
     if data.startswith("Name: "):
         name = data
-        debug = data.replace("Name: ", "DEBUG: ").replace("\x00", "").replace("Error in communication", "BLOCK READ FAILED").replace("Timeout in communication", "BLOCK READ TIMEOUT",).replace("The CRC_A does not match.","CRC FAIL")
+        debug = data.replace("Name: ", "DEBUG: ").replace("\x00", "").replace("Error in communication", "BLOCK READ FAILED").replace("Timeout in communication", "BLOCK READ TIMEOUT",).replace("CRC_A does not match.","CRC FAIL")
         print(debug) #debug 
         if not any(ignore_string in name for ignore_string in ignore_list):
             name = data[22:].replace(" ", "").replace("\x00", "")
