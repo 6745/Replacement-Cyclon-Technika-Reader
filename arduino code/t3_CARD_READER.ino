@@ -72,7 +72,7 @@ void loop() {
 
   //-------------------------------------------
 
-  mfrc522.PICC_DumpDetailsToSerial(&(mfrc522.uid)); //dump some details about the card
+ // mfrc522.PICC_DumpDetailsToSerial(&(mfrc522.uid)); //dump some details about the card
 
   //mfrc522.PICC_DumpToSerial(&(mfrc522.uid));      //uncomment this to see all blocks in hex
 
@@ -94,7 +94,7 @@ void loop() {
 
 status = mfrc522.MIFARE_Read(block, buffer1, &len);
 if (status != MFRC522::STATUS_OK) {
-  if (status == MFRC522::STATUS_CRC_WRONG || status == MFRC522::STATUS_MIFARE_NACK) {
+  if (status == MFRC522::STATUS_CRC_WRONG || status == MFRC522::STATUS_MIFARE_NACK || status == MFRC522::STATUS_ERROR || status == MFRC522::STATUS_INVALID || status == MFRC522::STATUS_INTERNAL_ERROR || status == MFRC522::STATUS_COLLISION || status == MFRC522::STATUS_TIMEOUT || status == MFRC522::STATUS_NO_ROOM ) {
     Serial.println("CRC_A does not match");
     mfrc522.PICC_HaltA(); // Stop communication with the PICC
     mfrc522.PCD_StopCrypto1(); // Stop encryption on PCD
@@ -114,7 +114,7 @@ if (status != MFRC522::STATUS_OK) {
       Serial.write(buffer1[i]);
     }
   }
-  Serial.print("");
+
 
   //---------------------------------------- GET LAST NAME
 
@@ -129,7 +129,7 @@ if (status != MFRC522::STATUS_OK) {
 
   status = mfrc522.MIFARE_Read(block, buffer2, &len);
 if (status != MFRC522::STATUS_OK) {
-  if (status == MFRC522::STATUS_CRC_WRONG || status == MFRC522::STATUS_MIFARE_NACK) {
+  if (status == MFRC522::STATUS_CRC_WRONG || status == MFRC522::STATUS_MIFARE_NACK || status == MFRC522::STATUS_ERROR || status == MFRC522::STATUS_INVALID || status == MFRC522::STATUS_INTERNAL_ERROR || status == MFRC522::STATUS_COLLISION || status == MFRC522::STATUS_TIMEOUT || status == MFRC522::STATUS_NO_ROOM ) {
     Serial.println("CRC_A does not match");
     mfrc522.PICC_HaltA(); // Stop communication with the PICC
     mfrc522.PCD_StopCrypto1(); // Stop encryption on PCD
@@ -148,7 +148,7 @@ if (status != MFRC522::STATUS_OK) {
       Serial.write(buffer2[i]);
     }
   }
-  Serial.print("");
+ 
 
   //---------------------------------------- GET BLOCK 2
 
@@ -163,7 +163,7 @@ if (status != MFRC522::STATUS_OK) {
   
 status = mfrc522.MIFARE_Read(block, buffer3, &len);
 if (status != MFRC522::STATUS_OK) {
-  if (status == MFRC522::STATUS_CRC_WRONG || status == MFRC522::STATUS_MIFARE_NACK) {
+  if (status == MFRC522::STATUS_CRC_WRONG || status == MFRC522::STATUS_MIFARE_NACK || status == MFRC522::STATUS_ERROR || status == MFRC522::STATUS_INVALID || status == MFRC522::STATUS_INTERNAL_ERROR || status == MFRC522::STATUS_COLLISION || status == MFRC522::STATUS_TIMEOUT || status == MFRC522::STATUS_NO_ROOM ){
     Serial.println("CRC_A does not match");
     mfrc522.PICC_HaltA(); // Stop communication with the PICC
     mfrc522.PCD_StopCrypto1(); // Stop encryption on PCD
@@ -176,7 +176,7 @@ if (status != MFRC522::STATUS_OK) {
 }
 
   //PRINT BLOCK 2 DATA
-  Serial.print("");
+
   for (uint8_t i = 0; i < 16; i++) {
     if (buffer3[i] != 32)
     {
