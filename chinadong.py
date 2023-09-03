@@ -3,6 +3,7 @@ import time
 import argparse
 import os
 import sys
+import pyautogui
 
 print(" ██████ ██████  ████████ ██████      ██    ██ ██████  ")
 print("██      ██   ██    ██    ██   ██     ██    ██      ██ ")
@@ -31,6 +32,7 @@ while True:
                 print("DEBUG: Block Read Success! Saving to file..") #debug 
                 with open("CardNum.txt", "w") as file:
                     file.write(name)
+                pyautogui.click()
                 time.sleep(5)
                 print("DEBUG: NULLED FILE!")
                 with open("CardNum.txt", "w") as file:
