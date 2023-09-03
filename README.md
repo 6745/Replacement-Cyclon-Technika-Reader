@@ -10,6 +10,4 @@ Code is tested on both a nano and uno pinouts are below
 
 # TO DO
 Revise the ardiuno code to remove bloat.
-Add cyclon support 
-Technika 1 and 2 support (i need the sector keys if you know real sector keys for JP technika 1, technika 1, and technika 2 please send me them.)
-Add real dongle support. (not possible until i obtain real technika dongles)
+ADD CYCLON KEYS TO ARDINO RIGHT NOW ONLY t3 CARDS WORK!
