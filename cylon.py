@@ -32,14 +32,14 @@ while True:
                 print("DEBUG: Block Read Success! Updating local_card in config.json...")  # debug
 
                 # Load the existing settings from config.json
-                with open("config.json", "r") as file:
+                with open("Data/System/JSON/config.json", "r") as file:
                     settings = json.load(file)
 
                 # Update the local_card value
                 settings["network"]["local_card"] = name
 
                 # Save the updated settings back to config.json
-                with open("config.json", "w") as file:
+                with open("Data/System/JSON/config.json", "w") as file:
                     json.dump(settings, file, indent=4)
 
             
@@ -53,7 +53,7 @@ while True:
                 settings["network"]["local_card"] = ""
 
                 # Save the updated settings back to config.json
-                with open("config.json", "w") as file:
+                with open("Data/System/JSON/config.json", "w") as file:
                     json.dump(settings, file, indent=4)
 
                 print("DEBUG: local_card reset to an empty string in config.json!")
