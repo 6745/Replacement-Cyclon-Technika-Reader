@@ -2,7 +2,7 @@ import serial
 import time
 import argparse
 import json
-
+import pyautogui
 print(" ██████╗██╗   ██╗██╗      ██████╗ ███╗   ██╗ ██████╗     ██╗   ██╗     ██╗")
 print("██╔════╝╚██╗ ██╔╝██║     ██╔═══██╗████╗  ██║██╔════╝     ██║   ██║    ███║")
 print("██║      ╚████╔╝ ██║     ██║   ██║██╔██╗ ██║██║  ███╗    ██║   ██║    ╚██║")
@@ -41,8 +41,9 @@ while True:
                 # Save the updated settings back to config.json
                 with open("Data/System/JSON/config.json", "w") as file:
                     json.dump(settings, file, indent=4)
-
-            
+                pyautogui.click()
+                time.sleep(5)
+                pyautogui.click()
                 print("DEBUG: local_card updated in config.json!")
 
                 # Sleep for 10 seconds
