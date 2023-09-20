@@ -22,13 +22,13 @@ ignore_list = ["Error in communication", "Authentication failed", "Timeout in co
 reset_timer = 10  # Set the reset timer to 10 second
 while True:
     data = ser.readline().decode('utf-8').strip()
-    if data.startswith("Name: "):
-        name = data
-        debug = data.replace("Name: ", "DEBUG: ").replace("\x00", "").replace("Error in communication", "BLOCK READ FAILED").replace("Timeout in communication", "BLOCK READ TIMEOUT",).replace("CRC_A does not match.","CRC FAIL")
-        print(debug)  # debug
+    if data.startswith("Name:"):
+        name = data     
+        debug = data.replace("Name:", "").replace("\x00", "").replace("Error in communication", "BLOCK READ FAILED").replace("Timeout in communication", "BLOCK READ TIMEOUT",).replace("CRC_A does not match.","CRC FAIL")
+        print(debug) #debug 
         if not any(ignore_string in name for ignore_string in ignore_list):
-            name = data[22:].replace(" ", "").replace("\x00", "")
-            if len(name) == 20:
+            name = data
+            if len(debug) == 20:
                 print("DEBUG: Block Read Success! Updating local_card in config.json...")  # debug
 
                 # Load the existing settings from config.json
@@ -36,7 +36,7 @@ while True:
                     settings = json.load(file)
 
                 # Update the local_card value
-                settings["network"]["local_card"] = name
+                settings["network"]["local_card"] = debug
 
                 # Save the updated settings back to config.json
                 with open("Data/System/JSON/config.json", "w") as file:
