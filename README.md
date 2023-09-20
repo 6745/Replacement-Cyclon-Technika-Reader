@@ -11,5 +11,5 @@ Code is tested on both a nano and uno pinouts are below
 ![image](https://img.youtube.com/vi/TJJ_1LiDDrc/maxresdefault.jpg)
 
 # TO DO
-Revise the ardiuno code to remove bloat.
-ADD CYCLON KEYS TO ARDINO RIGHT NOW ONLY t3 CARDS WORK!
+
+add t1 and t2 cards.
