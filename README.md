@@ -3,9 +3,11 @@ Writes to a file the 20 digits stored in block 1 and 2.
 
 # THIS IS A WAVE PASS READER! DO NOT USE AS A SLOT READER!
 
+this should work on real cabs using the CARDEMU from sows.(untested)
+
 # USE RELEASES it has a exe you can run so you dont need to install python!
 
-# THIS SHOULD WORK ALONG SIDE THE CARDEMU FROM SOWS! 
+
 
 
 NOT TESTED ON winxp please use 10 if there is any issues. 
