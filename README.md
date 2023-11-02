@@ -1,7 +1,9 @@
 # Cloned-Dongle-Technika-Reader
 Writes to a file the 20 digits stored in block 1 and 2.
 
-# THIS IS A WAVE PASS READER! DO NOT USE AS A SLOT READER!
+THIS IS A WAVE PASS READER! DO NOT USE AS A SLOT READER!
+
+TECHNIKA 2 3 AND CYCLON CARDS WORK WITHOUT CONVERTING THEM TO T3!
 
 this should work on real cabs using the CARDEMU from sows.(untested)
 
@@ -17,4 +19,4 @@ Code is tested on both a nano and uno pinouts are below
 
 # TO DO
 
-add t1 and t2 cards.
+add t1
