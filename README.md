@@ -19,4 +19,4 @@ Code is tested on both a nano and uno pinouts are below
 
 # TO DO
 
-add t1
+add T1JP.
