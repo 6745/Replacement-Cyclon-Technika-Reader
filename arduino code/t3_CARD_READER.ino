@@ -16,8 +16,7 @@ byte knownKeys[NR_KNOWN_KEYS][MFRC522::MF_KEY_SIZE] =  {
     {0x23, 0x57, 0x6E, 0x6A, 0x30, 0x21}, // T2:#Wnj0!(found with first breakpoint in debugger LOL)
     {0x44, 0x4D, 0x54, 0x23, 0x30, 0x31}, // T1:DMT#1. (USED CARD STATE?)
     {0x21, 0x44, 0x4D, 0x54, 0x31, 0x21}, // T1:!DMT1! new card state?
-    //{0x00, 0x00, 0x00, 0x00, 0x00, 0x00}, // T1JP: (USED CARD STATE?)
-    //{0x00, 0x00, 0x00, 0x00, 0x00, 0x00},// T1JP:  (new card state?)
+    {0x5e, 0x4e, 0x21, 0x70, 0x40, 0x6a}, // T1JP:^N!p@j (hardware attack)
 
 
 };
@@ -77,7 +76,7 @@ boolean try_key(MFRC522::MIFARE_Key *key)
         result = true;
         Serial.print(F("KEY:"));
         
-       // dump_byte_array((*key).keyByte, MFRC522::MF_KEY_SIZE);
+       dump_byte_array((*key).keyByte, MFRC522::MF_KEY_SIZE);
         Serial.println();
         Serial.print(F("Name:"));
         dump_byte_array(buffer, 16);
