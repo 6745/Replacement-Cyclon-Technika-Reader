@@ -20,7 +20,6 @@
   	modify the .bat file for the game you wanting to use
 	and run the bat file (make a startup short cut for automatic connection.)
 # TO DO
-	Technika 1 JP sector codes. 
 	fix timeout bug in cyclon  
  
 
