@@ -1,6 +1,6 @@
 # Cloned-Dongle-Technika-Reader
 	GAMES SUPPORTED: Cyclon(Boomerang Version.) DJMAX TECHNIKA 3 (CARDEMU or Cloned Dongle Version.)
- 	CARDS SUPPORTED: T1(Non JP), T2(ALL), T3(ALL), Cyclon.
+ 	CARDS SUPPORTED: T1(ALL), T2(ALL), T3(ALL), Cyclon.
 
 # BUILDING THE READER:
 	DO NOT USE AS SLOT READER! PLEASE USE AS WAVEPASS!
