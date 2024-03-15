@@ -11,6 +11,7 @@
  	You will need a RC522 RFID module, you can get these presoldered from most online stores,
   	amazon ones usually are not however always check the listing
 	Download ardiuno IDE and configure it to your boards specifications, 
+ 	install the MFRC522 libary from the Library Manager
  	wire up and match the following pinouts
 ![image](https://user-images.githubusercontent.com/75388599/220476085-4f6be78f-1bbe-407a-97b3-408ecee39cb0.png)
 ![image](https://img.youtube.com/vi/TJJ_1LiDDrc/maxresdefault.jpg)
